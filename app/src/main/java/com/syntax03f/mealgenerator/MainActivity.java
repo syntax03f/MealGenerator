@@ -7,10 +7,14 @@ import android.support.v7.widget.RecyclerView;
 
 import com.syntax03f.mealgenerator.adapters.MealRecyclerAdapter;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity {
+
+    @BindView(R.id.meal_list)
+    RecyclerView mealList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,9 +31,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void initMealList() {
-        RecyclerView mealList = (RecyclerView) findViewById(R.id.meal_list);
-        if (mealList == null) return;
-
         mealList.setLayoutManager(new LinearLayoutManager(this));
         MealRecyclerAdapter adapter = new MealRecyclerAdapter();
         mealList.setAdapter(adapter);
